@@ -9,7 +9,10 @@ return new class extends Migration {
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('plate_number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
     public function down(): void
